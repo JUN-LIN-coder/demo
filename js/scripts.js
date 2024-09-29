@@ -1,11 +1,9 @@
-
-
 // 載入婚紗照片
 function loadPhotos() {
 	// 婚紗照片資料
 	const photos = [];
 
-	for (let i = 1; i <= 80; i++) {
+	for (let i = 1; i <= 10; i++) {
 		// 使用 padStart 來確保數字格式是兩位數
 		const paddedIndex = String(i).padStart(2, '0'); 
 		photos.push({
@@ -159,17 +157,31 @@ function toggleSection(sectionId) {
     }
 }
 
-// 確保在 DOM 加載完成後執行
+document.getElementById("main-content").classList.add("hidden");
+
+let welcomeTimeout;
+
+// 在 DOM 加載完成後執行
 document.addEventListener("DOMContentLoaded", function() {
+	// 初始化圖片
 	loadPhotos();
 	
+    // 初始化計時器
+    startWelcomeTimer();	
+
     // 歡迎畫面在頁面加載後立即顯示
     document.getElementById("welcome-screen").style.display = "flex";
-	document.getElementById("main-content").classList.add("hidden");
 });
+
+// 計時器函數
+function startWelcomeTimer() {
+    welcomeTimeout = setTimeout(closeWelcome, 30000); // 30秒後自動關閉
+}
 
 // 關閉歡迎畫面
 function closeWelcome() {
+    clearTimeout(welcomeTimeout); // 清除計時器
     document.getElementById("welcome-screen").style.display = "none";
-	document.getElementById("main-content").classList.remove("hidden"); 
+    document.getElementById("main-content").classList.remove("hidden"); // 顯示主內容
 }
+

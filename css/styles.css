@@ -20,6 +20,15 @@ h1 {
 }
 
 /* Gallery Styles */
+.gallery-background {
+    height: 400px; /* 设置固定高度，根据需要调整 */
+    overflow-y: auto; /* 超出部分使用垂直滚动条 */
+    padding: 10px; /* 可选：内边距 */
+    border: 1px solid #ccc; /* 可选：边框样式 */
+    border-radius: 10px; /* 可选：圆角效果 */
+    background-color: #f9f9f9; /* 可选：背景颜色 */
+}
+
 .gallery {
     display: flex;
     justify-content: center;
@@ -28,16 +37,16 @@ h1 {
 }
 
 .gallery img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    width: 200px; /* 图片宽度 */
+    height: 150px; /* 图片高度 */
+    object-fit: cover; /* 确保图片不失真 */
+    cursor: pointer; /* 鼠标指针效果 */
+    border-radius: 10px; /* 圆角效果 */
+    transition: transform 0.3s ease; /* 动画效果 */
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* 鼠标悬停时放大效果 */
 }
 
 /* Menu Item Styles */
