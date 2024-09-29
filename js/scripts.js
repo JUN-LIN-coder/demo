@@ -185,3 +185,6 @@ function closeWelcome() {
     document.getElementById("main-content").classList.remove("hidden"); // 顯示主內容
 }
 
+function showAlert() {
+    alert("不只錢到！人也要到！請帶著紅包到現場！");
+}
