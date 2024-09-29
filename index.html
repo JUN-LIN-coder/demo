@@ -3,75 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>婚宴電子喜帖</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 引用外部CSS -->
+    <title>我們的婚禮邀請函</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
-    <h1>婚宴電子喜帖</h1>
-    <h2>我們的婚禮</h2>
-    <p>親愛的家人和朋友們，誠摯邀請您參加我們的婚禮！</p>
+    <h1>歡迎來到我們的婚禮！</h1>
 
-    <h3>婚禮地點</h3>
-    <p>XYZ飯店，婚宴大廳</p>
-
-    <h3>婚禮時間</h3>
-    <p>2024年12月12日 下午3點</p>
-
-    <h3>婚宴菜單</h3>
-    <p>敬請期待精緻的美食！</p>
-
-    <h3>我們的故事</h3>
-    <p>我們相遇、相知、相愛，期待與您分享這幸福的時刻！</p>
-
-    <!-- 照片展示 -->
-    <h3>照片集</h3>
-    <div class="row">
-      <div class="column">
-        <img src="images/free-demo01.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
-      </div>
-      <div class="column">
-        <img src="images/free-demo02.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
-      </div>
+    <!-- 婚紗照片區塊 -->
+    <div class="section" id="wedding-photos">
+        <h2>婚紗照片</h2>
+        <div class="gallery">
+            <img src="images/free-demo01.jpg" alt="婚紗照片1" onclick="openLightbox();currentSlide(1)">
+            <img src="images/free-demo02.jpg" alt="婚紗照片2" onclick="openLightbox();currentSlide(2)">
+        </div>
     </div>
 
-    <!-- Lightbox Modal -->
-    <div id="myModal" class="modal">
-      <span class="close cursor" onclick="closeModal()">&times;</span>
-      <div class="modal-content">
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
 
+        <!-- Slides -->
         <div class="mySlides">
-          <div class="numbertext">1 / 2</div>
-          <img src="images/free-demo01.jpg" style="width:100%">
+            <img src="images/free-demo01.jpg" alt="婚紗照片1">
+        </div>
+        <div class="mySlides">
+            <img src="images/free-demo02.jpg" alt="婚紗照片2">
         </div>
 
-        <div class="mySlides">
-          <div class="numbertext">2 / 2</div>
-          <img src="images/free-demo02.jpg" style="width:100%">
-        </div>
-
-        <!-- Next/previous controls -->
+        <!-- Previous/Next controls -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <!-- Caption text -->
-        <div class="caption-container">
-          <p id="caption"></p>
-        </div>
-
-        <!-- Thumbnail image controls -->
-        <div class="column">
-          <img class="demo" src="images/free-demo01.jpg" onclick="currentSlide(1)" alt="Image 1">
-        </div>
-
-        <div class="column">
-          <img class="demo" src="images/free-demo02.jpg" onclick="currentSlide(2)" alt="Image 2">
-        </div>
-        </div>
-      </div>
     </div>
 
-    <script src="scripts.js"></script> <!-- 引用外部JS -->
+    <!-- 婚宴地點 -->
+    <div class="section" id="wedding-location">
+        <h2>婚宴地點</h2>
+        <p>婚宴將於 <strong>2024 年 11 月 2 日</strong> 在台中市大雅區的「幸福莊園 House Wedding」舉行。</p>
+        <p>地址：台中市大雅區樹德街252號</p>
+        <!-- 嵌入 Google Maps -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116419.84244437577!2d120.51501479726564!3d24.237578700000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917270c98aaa9%3A0x6cf66c904b8612d9!2z5bm456aP6I6K5ZySSG91c2UgV2VkZGluZw!5e0!3m2!1szh-TW!2stw!4v1727584513869!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
+    <!-- 婚宴時間 -->
+    <div class="section" id="wedding-time">
+        <h2>婚宴時間</h2>
+        <p><strong>婚宴時間：</strong> 2024 年 11 月 2 日 下午 2:00</p>
+    </div>
+
+    <!-- 婚宴菜單 -->
+    <div class="section" id="wedding-menu">
+        <h2>婚宴菜單</h2>
+        <ul class="menu-item">
+            <li>前菜：龍蝦沙拉</li>
+            <li>湯品：松露蘑菇濃湯</li>
+            <li>主菜：法式烤鴨</li>
+            <li>甜點：提拉米蘇</li>
+            <li>飲品：紅酒、香檳</li>
+        </ul>
+    </div>
+
+    <!-- 新人故事 -->
+    <div class="section" id="couple-story">
+        <h2>新人故事</h2>
+        <p>俊霖愛姝妃，姝妃愛俊霖，尚未填內容</p>
+    </div>
+
+    <script src="js/scripts.js"></script> <!-- 引入外部 JavaScript -->
 </body>
 </html>
