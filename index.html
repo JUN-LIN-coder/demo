@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="JunLin & ShuFei 婚宴" />
+	<meta property="og:description" content="電子喜帖啦～" />
+	<meta property="og:image" content="images/icon-wedding-reception.png" />
+	<meta property="og:url" content="https://jun-lin-coder.github.io/demo/" />
+	<meta property="og:type" content="website" />
     <title>JunLin & ShuFei 婚宴</title>
     <link rel="icon" href="images/icon-wedding-reception.png" type="image/png">
-	<meta property="og:image" content="icon-wedding-reception.png">
-    <meta property="og:title" content="JunLin & ShuFei 婚宴">
-    <meta property="og:description" content="電子喜帖啦～">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<meta name="referrer" content="strict-origin-when-cross-origin" />
 </head>
 <body>
     <!-- 歡迎畫面 -->
@@ -20,7 +21,7 @@
     <div id="main-content">
 	    <!-- 標題 -->
 		<div id="title">
-			<p>JunLin & ShuFei</p>
+			<img src="images/title-content.png" alt="Wedding Title">
 		</div>
 	    
         <!-- 標題圖片 -->
@@ -35,19 +36,19 @@
         <div class="panel" id="wedding-details" style="display:none;">
             <p class="align-red-text">
                 <strong style="color: #d9534f;">日期：</strong> 
-                <span style="font-weight: bold;">2024 年 11 月 2 日</span>
+                <span style="font-weight: bold; color: #595757;">2024 年 11 月 2 日</span>
             </p>
             <p class="align-red-text">
                 <strong style="color: #d9534f;">時間：</strong> 
-                <span style="font-weight: bold;">下午 12:00</span>
+                <span style="font-weight: bold; color: #595757;">下午 12:00</span>
             </p>
             <p class="align-red-text">
                 <strong style="color: #d9534f;">地點：</strong> 
-                <span style="font-weight: bold;">幸福莊園 House Wedding</span>
+                <span style="font-weight: bold; color: #595757;">幸福莊園 House Wedding</span>
             </p>
             <p class="align-red-text">
                 <strong style="color: #d9534f;">地址：</strong> 
-                <span style="font-weight: bold;">台中市大雅區樹德街252號</span>
+                <span style="font-weight: bold; color: #595757;">台中市大雅區樹德街252號</span>
             </p>
         </div>
         
@@ -55,7 +56,8 @@
 			<img src="images/icon-story.png" alt="新人故事" style="width: 20px; height: 20px; vertical-align: middle;"> 新人故事
 		</button>
         <div class="panel" id="couple-story" style="display:none;">
-			<p style="font-style: italic;">我們的故事，從一個美好的邂逅開始...，請<a href="#" onclick="showAlert()">至現場付費解鎖！</a></p>
+			<p style="font-style: italic;">我們的故事，從一個美好的邂逅開始...</p>
+			<p style="font-weight: bold;"><a href="#" onclick="showAlert()">[請付費解鎖]</a></p>
 		</div>
         
         <button class="accordion" onclick="toggleSection('wedding-photos')">
@@ -109,7 +111,7 @@
 			<img src="images/icon-client-photos.png" alt="賓客上傳" style="width: 20px; height: 20px; vertical-align: middle;"> 賓客上傳
 		</button>
         <div class="panel" id="wedding-client-photos" style="display:none;">
-			<p>請點擊下面的Google雲端硬碟連結上傳您的照片/影片：</p>
+			<p>請為我們拍下美好的時刻，合照也會放這裡喔！</p>
 			<a href="https://drive.google.com/drive/folders/13MMNgGDCdrACqzRqFCtJLjoI16hPU3hp?usp=sharing" target="_blank" style="color: #d9534f; font-weight: bold;">上傳賓客照片/影片</a>
         </div>
 		
