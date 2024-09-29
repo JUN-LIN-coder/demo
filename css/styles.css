@@ -188,13 +188,16 @@ h1 {
     padding: 20px; /* 內邊距 */
 }
 
-/* Blur Background Styles */
-.blur-background {
-    filter: blur(5px); /* 模糊效果 */
-    pointer-events: none; /* 禁止點擊 */
-}
-
 /* Hidden Content Styles */
 .hidden {
     display: none; /* 隱藏內容 */
+	pointer-events: none; /* 禁止點擊 */
+}
+
+.align-red-text {
+	display: flex;
+	align-items: center; /* 垂直置中 */
+}
+.align-red-text strong {
+	margin-right: 10px; /* 右側距離 */
 }

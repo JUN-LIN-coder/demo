@@ -21,10 +21,22 @@
         <!-- 各個 section 的按鈕 -->
         <button class="accordion" onclick="toggleSection('wedding-details')">💖 愛的邀約</button>
         <div class="panel" id="wedding-details" style="display:none;">
-            <p><strong style="color: #d9534f;">日期：</strong> <span style="font-weight: bold;">2024 年 11 月 2 日</span></p>
-            <p><strong style="color: #d9534f;">時間：</strong> <span style="font-weight: bold;">下午 2:00</span></p>
-            <p><strong style="color: #d9534f;">地點：</strong> <span style="font-weight: bold;">幸福莊園 House Wedding</span></p>
-            <p><strong style="color: #d9534f;">地址：</strong> <span style="font-weight: bold;">台中市大雅區樹德街252號</span></p>
+            <p class="align-red-text">
+                <strong style="color: #d9534f;">日期：</strong> 
+                <span style="font-weight: bold;">2024 年 11 月 2 日</span>
+            </p>
+            <p class="align-red-text">
+                <strong style="color: #d9534f;">時間：</strong> 
+                <span style="font-weight: bold;">下午 12:00</span>
+            </p>
+            <p class="align-red-text">
+                <strong style="color: #d9534f;">地點：</strong> 
+                <span style="font-weight: bold;">幸福莊園 House Wedding</span>
+            </p>
+            <p class="align-red-text">
+                <strong style="color: #d9534f;">地址：</strong> 
+                <span style="font-weight: bold;">台中市大雅區樹德街252號</span>
+            </p>
         </div>
         
         <button class="accordion" onclick="toggleSection('couple-story')">📖 新人故事</button>
@@ -34,10 +46,7 @@
         
         <button class="accordion" onclick="toggleSection('wedding-photos')">📸 婚紗相冊</button>
         <div class="panel" id="wedding-photos">
-            <div class="gallery">
-                <img src="images/free-demo01.jpg" alt="婚紗照片1" onclick="openLightbox();currentSlide(1)">
-                <img src="images/free-demo02.jpg" alt="婚紗照片2" onclick="openLightbox();currentSlide(2)">
-            </div>
+			<div id="gallery-container" class="gallery"></div>
         </div>
 
         <button class="accordion" onclick="toggleSection('wedding-location')">🗺️ 婚宴地圖</button>
@@ -53,7 +62,20 @@
             <div id="countdown"></div>
             <button id="add-to-calendar">📅 加入 Google 行事曆</button>
         </div>
+		
+		<!-- Lightbox -->
+		<div id="lightbox" class="lightbox">
+			<span class="close" onclick="closeLightbox()">&times;</span>
+
+			<!-- Slides -->
+			<div id="slides-container" />
+
+			<!-- Previous/Next controls -->
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
     </div>
+
 
     <script src="js/scripts.js"></script>
 </body>

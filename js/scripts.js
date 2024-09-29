@@ -1,7 +1,37 @@
+// 婚紗照片資料
+const photos = [
+    { src: "images/free-demo01.jpg", alt: "婚紗照片1", index: 1 },
+    { src: "images/free-demo02.jpg", alt: "婚紗照片2", index: 2 }
+];
+
+// 載入婚紗照片
+function loadPhotos() {
+	const galleryElement = document.getElementById('gallery-container');
+	const photoSlide = document.getElementById('slides-container');
+	
+    photos.forEach(photo => {
+        const img = document.createElement("img");
+        img.src = photo.src;
+        img.alt = photo.alt;
+        img.onclick = () => openLightbox(photo.index);
+        galleryElement.appendChild(img);
+		
+		const slideDiv = document.createElement("div");
+		slideDiv.className = "mySlides";
+		const slideImg = document.createElement("img");
+        slideImg.src = photo.src;
+        slideImg.alt = photo.alt;
+        slideDiv.appendChild(slideImg);
+        photoSlide.appendChild(slideDiv);
+		
+    });
+}
+
 let slideIndex = 1;
 
 // 開啟 Lightbox
-function openLightbox() {
+function openLightbox(index) {
+	currentSlide(index);
     document.getElementById("lightbox").style.display = "flex";
     showSlides(slideIndex);
 }
@@ -48,7 +78,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 // 設定婚宴時間
-const weddingDate = new Date("2024-11-02T14:00:00").getTime();
+const weddingDate = new Date("2024-11-02T12:00:00").getTime();
 
 // 倒數計時函數
 const countdownFunction = () => {
@@ -81,11 +111,11 @@ const addToGoogleCalendar = () => {
         'location': '幸福莊園 House Wedding',
         'description': '婚宴邀請函',
         'start': {
-            'dateTime': '2024-11-02T14:00:00',
+            'dateTime': '2024-11-02T12:00:00',
             'timeZone': 'Asia/Taipei'
         },
         'end': {
-            'dateTime': '2024-11-02T17:00:00',
+            'dateTime': '2024-11-02T14:00:00',
             'timeZone': 'Asia/Taipei'
         },
     };
@@ -120,11 +150,15 @@ function toggleSection(sectionId) {
 
 // 確保在 DOM 加載完成後執行
 document.addEventListener("DOMContentLoaded", function() {
+	loadPhotos();
+	
     // 歡迎畫面在頁面加載後立即顯示
     document.getElementById("welcome-screen").style.display = "flex";
+	document.getElementById("main-content").classList.add("hidden");
 });
 
 // 關閉歡迎畫面
 function closeWelcome() {
     document.getElementById("welcome-screen").style.display = "none";
+	document.getElementById("main-content").classList.remove("hidden"); 
 }
