@@ -2,8 +2,25 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* 背景顏色 */
     color: #333;
+    margin: 0; /* 移除預設的 margin */
+    padding: 0; /* 移除預設的 padding */
+}
+
+body::before {
+    content: '';
+    position: fixed; /* 固定在視窗 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/wood.jpg'); /* 替換為您的圖片路徑 */
+    background-size: cover; /* 背景圖片覆蓋整個區域 */
+    background-position: center; /* 使背景圖片居中 */
+    background-repeat: no-repeat; /* 不重複背景圖片 */
+    opacity: 0.5; /* 調整這裡的數值以改變透明度，範圍是 0 到 1 */
+    z-index: -1; /* 確保它在其他內容之下 */
 }
 
 h1 {
@@ -26,7 +43,7 @@ h1 {
     padding: 10px; /* 可选：内边距 */
     border: 1px solid #ccc; /* 可选：边框样式 */
     border-radius: 10px; /* 可选：圆角效果 */
-    background-color: #f9f9f9; /* 可选：背景颜色 */
+    background-color: #f7f2eb; /* 可选：背景颜色 */
 }
 
 .gallery {
@@ -134,7 +151,7 @@ h1 {
 
 /* Accordion Styles */
 .accordion {
-    background-color: #4CAF50; /* 按鈕背景顏色 */
+    background-color: #8E5038; /* 按鈕背景顏色 */
     color: white; /* 文字顏色 */
     cursor: pointer; /* 滑鼠指標 */
     padding: 15px; /* 內邊距 */
@@ -144,20 +161,21 @@ h1 {
     outline: none; /* 無輪廓 */
     font-size: 16px; /* 字體大小 */
     transition: background-color 0.3s; /* 背景顏色過渡效果 */
-    border-radius: 5px; /* 圓角 */
+    border-radius: 20px; /* 圓角 */
     margin: 5px 0; /* 外邊距 */
 }
 
 .accordion.active, .accordion:hover {
-    background-color: #45a049; /* 懸停時的背景顏色 */
+    background-color: #D06C46; /* 懸停時的背景顏色 */
 }
 
 .panel {
     padding: 0 15px; /* 內邊距 */
     display: none; /* 初始隱藏 */
     overflow: hidden; /* 隱藏溢出內容 */
-    background-color: #f1f1f1; /* 背景顏色 */
+    background-color: #f7f2eb; /* 背景顏色 */
     margin-bottom: 5px; /* 下邊距 */
+	border-radius: 15px; /* 圓角 */
 }
 
 /* Welcome Screen Styles */
@@ -181,7 +199,17 @@ h1 {
     cursor: pointer; /* 鼠標樣式 */
 }
 
-/* Title Image Styles */
+/* Title Styles */
+
+#title {
+    text-align: center; /* 置中 */
+    margin: 20px 0; /* 上下邊距 */
+    font-size: 24px; /* 字體大小 */
+    font-weight: bold; /* 粗體 */
+    color: #fff; /* 文字顏色 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字陰影 */
+}
+
 #title-image {
     text-align: center; /* 置中 */
     margin: 20px 0; /* 上下邊距 */

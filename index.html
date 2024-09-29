@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JunLin & ShuFei 婚宴</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" href="images/icon-wedding-reception.png" type="image/png">
+	<meta property="og:image" content="icon-wedding-reception.png">
+    <meta property="og:title" content="JunLin & ShuFei 婚宴">
+    <meta property="og:description" content="電子喜帖啦～">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<meta name="referrer" content="strict-origin-when-cross-origin" />
 </head>
 <body>
@@ -14,13 +18,20 @@
     </div>
 
     <div id="main-content">
+	    <!-- 標題 -->
+		<div id="title">
+			<p>JunLin & ShuFei</p>
+		</div>
+	    
         <!-- 標題圖片 -->
         <div id="title-image">
-            <img src="images/title.jpg" alt="Wedding Title">
+            <img src="images/title.png" alt="Wedding Title">
         </div>
 
         <!-- 各個 section 的按鈕 -->
-        <button class="accordion" onclick="toggleSection('wedding-details')">💖 小道消息</button>
+        <button class="accordion" onclick="toggleSection('wedding-details')">
+			<img src="images/icon-message.png" alt="小道消息" style="width: 20px; height: 20px; vertical-align: middle;"> 小道消息
+		</button>
         <div class="panel" id="wedding-details" style="display:none;">
             <p class="align-red-text">
                 <strong style="color: #d9534f;">日期：</strong> 
@@ -40,12 +51,16 @@
             </p>
         </div>
         
-        <button class="accordion" onclick="toggleSection('couple-story')">📖 新人故事</button>
+        <button class="accordion" onclick="toggleSection('couple-story')">
+			<img src="images/icon-story.png" alt="新人故事" style="width: 20px; height: 20px; vertical-align: middle;"> 新人故事
+		</button>
         <div class="panel" id="couple-story" style="display:none;">
 			<p style="font-style: italic;">我們的故事，從一個美好的邂逅開始...，請<a href="#" onclick="showAlert()">至現場付費解鎖！</a></p>
 		</div>
         
-        <button class="accordion" onclick="toggleSection('wedding-photos')">📸 婚紗相冊</button>
+        <button class="accordion" onclick="toggleSection('wedding-photos')">
+			<img src="images/icon-photos.png" alt="婚紗相冊" style="width: 20px; height: 20px; vertical-align: middle;"> 婚紗相冊
+		</button>
         <div class="panel" id="wedding-photos">
 			<div class="gallery-background">
 				<div id="gallery-container" class="gallery"></div>		
@@ -53,7 +68,9 @@
         </div>
 		
 		<!--https://www.youtube.com/watch?v=fTqjtScE2LQ-->
-		<button class="accordion" onclick="toggleSection('wedding-photos-vedio')">🎞️ 婚紗影片</button>
+		<button class="accordion" onclick="toggleSection('wedding-photos-vedio')">
+			<img src="images/icon-vedio.png" alt="婚紗影片" style="width: 20px; height: 20px; vertical-align: middle;"> 婚紗影片
+		</button>
 		<div class="panel" id="wedding-photos-vedio" style="display:none;">
 			<iframe
 				src="https://www.youtube.com/embed/fTqjtScE2LQ"
@@ -62,7 +79,9 @@
 			</iframe>
 		</div>
 
-        <button class="accordion" onclick="toggleSection('wedding-location')">🗺️ 婚宴地圖</button>
+        <button class="accordion" onclick="toggleSection('wedding-location')">
+			<img src="images/icon-map.png" alt="婚宴地圖" style="width: 20px; height: 20px; vertical-align: middle;"> 婚宴地圖
+		</button>
         <div class="panel" id="wedding-location" style="display:none;">
             <div class="map-container">
 				<iframe
@@ -77,11 +96,21 @@
             <p><strong>地址：</strong> <span style="font-weight: bold;">台中市大雅區樹德街252號</span></p>
         </div>
         
-        <button class="accordion" onclick="toggleSection('wedding-reminder')">⏰ 婚宴提醒</button>
+        <button class="accordion" onclick="toggleSection('wedding-reminder')">
+			<img src="images/icon-alert.png" alt="婚宴提醒" style="width: 20px; height: 20px; vertical-align: middle;"> 婚宴提醒
+		</button>
         <div class="panel" id="wedding-reminder" style="display:none;">
             <h2 style="color: #d9534f;">婚宴提醒</h2>
             <div id="countdown"></div>
             <button id="add-to-calendar">📅 加入 Google 行事曆</button>
+        </div>
+		
+		<button class="accordion" onclick="toggleSection('wedding-client-photos')">
+			<img src="images/icon-client-photos.png" alt="賓客上傳" style="width: 20px; height: 20px; vertical-align: middle;"> 賓客上傳
+		</button>
+        <div class="panel" id="wedding-client-photos" style="display:none;">
+			<p>請點擊下面的Google雲端硬碟連結上傳您的照片/影片：</p>
+			<a href="https://drive.google.com/drive/folders/13MMNgGDCdrACqzRqFCtJLjoI16hPU3hp?usp=sharing" target="_blank" style="color: #d9534f; font-weight: bold;">上傳賓客照片/影片</a>
         </div>
 		
 		<div id="lightbox" class="lightbox">
