@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JunLin & ShuFei 婚宴</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+	<meta name="referrer" content="strict-origin-when-cross-origin" />
 </head>
 <body>
     <!-- 歡迎畫面 -->
@@ -48,6 +49,16 @@
         <div class="panel" id="wedding-photos">
 			<div id="gallery-container" class="gallery"></div>
         </div>
+		
+		<!--https://www.youtube.com/watch?v=fTqjtScE2LQ-->
+		<button class="accordion" onclick="toggleSection('wedding-photos-vedio')">🎞️ 婚紗影片</button>
+		<div class="panel" id="wedding-photos-vedio" style="display:none;">
+			<iframe
+				src="https://www.youtube.com/embed/fTqjtScE2LQ"
+				title="俊霖 ♥ 姝妃 HD（1080p）"
+				frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+			</iframe>
+		</div>
 
         <button class="accordion" onclick="toggleSection('wedding-location')">🗺️ 婚宴地圖</button>
         <div class="panel" id="wedding-location" style="display:none;">
@@ -63,14 +74,11 @@
             <button id="add-to-calendar">📅 加入 Google 行事曆</button>
         </div>
 		
-		<!-- Lightbox -->
 		<div id="lightbox" class="lightbox">
 			<span class="close" onclick="closeLightbox()">&times;</span>
 
-			<!-- Slides -->
 			<div id="slides-container" />
 
-			<!-- Previous/Next controls -->
 			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 			<a class="next" onclick="plusSlides(1)">&#10095;</a>
 		</div>

@@ -201,3 +201,22 @@ h1 {
 .align-red-text strong {
 	margin-right: 10px; /* 右側距離 */
 }
+
+/* 讓容器保持影片的比例 */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background-color: #000; /* 背景為黑色，若影片未載入顯示此背景 */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

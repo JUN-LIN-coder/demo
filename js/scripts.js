@@ -1,11 +1,20 @@
-// 婚紗照片資料
-const photos = [
-    { src: "images/free-demo01.jpg", alt: "婚紗照片1", index: 1 },
-    { src: "images/free-demo02.jpg", alt: "婚紗照片2", index: 2 }
-];
+
 
 // 載入婚紗照片
 function loadPhotos() {
+	// 婚紗照片資料
+	const photos = [];
+
+	for (let i = 1; i <= 80; i++) {
+		// 使用 padStart 來確保數字格式是兩位數
+		const paddedIndex = String(i).padStart(2, '0'); 
+		photos.push({
+			src: `images/PGG_${paddedIndex}.jpg`,
+			alt: `婚紗照片${paddedIndex}`,
+			index: i
+		});
+	}
+	
 	const galleryElement = document.getElementById('gallery-container');
 	const photoSlide = document.getElementById('slides-container');
 	
@@ -13,6 +22,7 @@ function loadPhotos() {
         const img = document.createElement("img");
         img.src = photo.src;
         img.alt = photo.alt;
+		img.loading = "lazy";
         img.onclick = () => openLightbox(photo.index);
         galleryElement.appendChild(img);
 		
@@ -21,6 +31,7 @@ function loadPhotos() {
 		const slideImg = document.createElement("img");
         slideImg.src = photo.src;
         slideImg.alt = photo.alt;
+		slideImg.loading = "lazy";
         slideDiv.appendChild(slideImg);
         photoSlide.appendChild(slideDiv);
 		
