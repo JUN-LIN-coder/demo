@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // 計時器函數
 function startWelcomeTimer() {
-    welcomeTimeout = setTimeout(closeWelcome, 30000); // 30秒後自動關閉
+    welcomeTimeout = setTimeout(closeWelcome, 5000); // 5秒後自動關閉
 }
 
 // 關閉歡迎畫面
