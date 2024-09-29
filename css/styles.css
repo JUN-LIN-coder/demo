@@ -1,4 +1,4 @@
-/* Lightbox CSS */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -11,6 +11,7 @@ h1 {
     margin-top: 20px;
 }
 
+/* Section Styles */
 .section {
     margin: 20px 0;
     padding: 10px;
@@ -18,6 +19,7 @@ h1 {
     text-align: center; /* Center text content */
 }
 
+/* Gallery Styles */
 .gallery {
     display: flex;
     justify-content: center;
@@ -38,6 +40,7 @@ h1 {
     transform: scale(1.05);
 }
 
+/* Menu Item Styles */
 .menu-item {
     list-style-type: none;
     padding: 0;
@@ -47,7 +50,7 @@ h1 {
     padding: 5px 0;
 }
 
-/* Lightbox */
+/* Lightbox Styles */
 .lightbox {
     position: fixed;
     top: 0;
@@ -91,4 +94,107 @@ h1 {
 
 .next {
     right: 10px;
+}
+
+/* Wedding Reminder Styles */
+#wedding-reminder {
+    text-align: center; /* 置中對齊 */
+    margin: 20px 0;
+}
+
+#countdown {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#add-to-calendar {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50; /* 綠色背景 */
+    color: white; /* 白色文字 */
+    border: none; /* 無邊框 */
+    border-radius: 5px; /* 圓角 */
+    transition: background-color 0.3s; /* 動畫效果 */
+}
+
+#add-to-calendar:hover {
+    background-color: #45a049; /* 懸停顏色變化 */
+}
+
+/* Accordion Styles */
+.accordion {
+    background-color: #4CAF50; /* 按鈕背景顏色 */
+    color: white; /* 文字顏色 */
+    cursor: pointer; /* 滑鼠指標 */
+    padding: 15px; /* 內邊距 */
+    width: 100%; /* 寬度 */
+    border: none; /* 無邊框 */
+    text-align: left; /* 左對齊 */
+    outline: none; /* 無輪廓 */
+    font-size: 16px; /* 字體大小 */
+    transition: background-color 0.3s; /* 背景顏色過渡效果 */
+    border-radius: 5px; /* 圓角 */
+    margin: 5px 0; /* 外邊距 */
+}
+
+.accordion.active, .accordion:hover {
+    background-color: #45a049; /* 懸停時的背景顏色 */
+}
+
+.panel {
+    padding: 0 15px; /* 內邊距 */
+    display: none; /* 初始隱藏 */
+    overflow: hidden; /* 隱藏溢出內容 */
+    background-color: #f1f1f1; /* 背景顏色 */
+    margin-bottom: 5px; /* 下邊距 */
+}
+
+/* Welcome Screen Styles */
+#welcome-screen {
+    display: flex; /* 使用彈性盒模型 */
+    position: fixed; /* 固定位置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+    z-index: 1000; /* 在其他內容上面 */
+    justify-content: center; /* 置中 */
+    align-items: center; /* 置中 */
+}
+
+#welcome-screen img {
+    max-width: 80%; /* 最大寬度 */
+    max-height: 80%; /* 最大高度 */
+    height: auto; /* 自動調整高度 */
+    cursor: pointer; /* 鼠標樣式 */
+}
+
+/* Title Image Styles */
+#title-image {
+    text-align: center; /* 置中 */
+    margin: 20px 0; /* 上下邊距 */
+}
+
+#title-image img {
+    max-width: 100%; /* 限制圖片最大寬度 */
+    height: auto; /* 自動調整高度 */
+}
+
+/* Main Content Styles */
+#main-content {
+    padding: 20px; /* 內邊距 */
+}
+
+/* Blur Background Styles */
+.blur-background {
+    filter: blur(5px); /* 模糊效果 */
+    pointer-events: none; /* 禁止點擊 */
+}
+
+/* Hidden Content Styles */
+.hidden {
+    display: none; /* 隱藏內容 */
 }

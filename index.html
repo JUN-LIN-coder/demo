@@ -3,75 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我們的婚禮邀請函</title>
+    <title>JunLin & ShuFei 婚宴</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+    <!-- 歡迎畫面 -->
+    <div id="welcome-screen">
+        <img src="images/welcome.jpg" alt="Welcome" onclick="closeWelcome()">
+    </div>
 
-    <h1>歡迎來到我們的婚禮！</h1>
+    <div id="main-content">
+        <!-- 標題圖片 -->
+        <div id="title-image">
+            <img src="images/title.jpg" alt="Wedding Title">
+        </div>
 
-    <!-- 婚紗照片區塊 -->
-    <div class="section" id="wedding-photos">
-        <h2>婚紗照片</h2>
-        <div class="gallery">
-            <img src="images/free-demo01.jpg" alt="婚紗照片1" onclick="openLightbox();currentSlide(1)">
-            <img src="images/free-demo02.jpg" alt="婚紗照片2" onclick="openLightbox();currentSlide(2)">
+        <!-- 各個 section 的按鈕 -->
+        <button class="accordion" onclick="toggleSection('wedding-details')">💖 愛的邀約</button>
+        <div class="panel" id="wedding-details" style="display:none;">
+            <p><strong style="color: #d9534f;">日期：</strong> <span style="font-weight: bold;">2024 年 11 月 2 日</span></p>
+            <p><strong style="color: #d9534f;">時間：</strong> <span style="font-weight: bold;">下午 2:00</span></p>
+            <p><strong style="color: #d9534f;">地點：</strong> <span style="font-weight: bold;">幸福莊園 House Wedding</span></p>
+            <p><strong style="color: #d9534f;">地址：</strong> <span style="font-weight: bold;">台中市大雅區樹德街252號</span></p>
+        </div>
+        
+        <button class="accordion" onclick="toggleSection('couple-story')">📖 新人故事</button>
+        <div class="panel" id="couple-story" style="display:none;">
+            <p style="font-style: italic;">我們的故事，從一個美好的邂逅開始...</p>
+        </div>
+        
+        <button class="accordion" onclick="toggleSection('wedding-photos')">📸 婚紗相冊</button>
+        <div class="panel" id="wedding-photos">
+            <div class="gallery">
+                <img src="images/free-demo01.jpg" alt="婚紗照片1" onclick="openLightbox();currentSlide(1)">
+                <img src="images/free-demo02.jpg" alt="婚紗照片2" onclick="openLightbox();currentSlide(2)">
+            </div>
+        </div>
+
+        <button class="accordion" onclick="toggleSection('wedding-location')">🗺️ 婚宴地圖</button>
+        <div class="panel" id="wedding-location" style="display:none;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116419.84244437577!2d120.51501479726564!3d24.237578700000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917270c98aaa9%3A0x6cf66c904b8612d9!2z5bm456aP6I6K5ZySSG91c2UgV2VkZGluZw!5e0!3m2!1szh-TW!2stw!4v1727584513869!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p><strong style="color: #d9534f;">幸福莊園 House Wedding</strong></p>
+            <p><strong>地址：</strong> <span style="font-weight: bold;">台中市大雅區樹德街252號</span></p>
+        </div>
+        
+        <button class="accordion" onclick="toggleSection('wedding-reminder')">⏰ 婚宴提醒</button>
+        <div class="panel" id="wedding-reminder" style="display:none;">
+            <h2 style="color: #d9534f;">婚宴提醒</h2>
+            <div id="countdown"></div>
+            <button id="add-to-calendar">📅 加入 Google 行事曆</button>
         </div>
     </div>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="close" onclick="closeLightbox()">&times;</span>
-
-        <!-- Slides -->
-        <div class="mySlides">
-            <img src="images/free-demo01.jpg" alt="婚紗照片1">
-        </div>
-        <div class="mySlides">
-            <img src="images/free-demo02.jpg" alt="婚紗照片2">
-        </div>
-
-        <!-- Previous/Next controls -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-
-    <!-- 婚宴地點 -->
-    <div class="section" id="wedding-location">
-        <h2>婚宴地點</h2>
-        <p>婚宴將於 <strong>2024 年 11 月 2 日</strong> 在台中市大雅區的「幸福莊園 House Wedding」舉行。</p>
-        <p>地址：台中市大雅區樹德街252號</p>
-        <!-- 嵌入 Google Maps -->
-        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116419.84244437577!2d120.51501479726564!3d24.237578700000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917270c98aaa9%3A0x6cf66c904b8612d9!2z5bm456aP6I6K5ZySSG91c2UgV2VkZGluZw!5e0!3m2!1szh-TW!2stw!4v1727584513869!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116419.84244437577!2d120.51501479726564!3d24.237578700000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917270c98aaa9%3A0x6cf66c904b8612d9!2z5bm456aP6I6K5ZySSG91c2UgV2VkZGluZw!5e0!3m2!1szh-TW!2stw!4v1727584513869!5m2!1szh-TW!2stw" 
-        style="border:0; width: 100%; height: 300px;" 
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <!-- 婚宴時間 -->
-    <div class="section" id="wedding-time">
-        <h2>婚宴時間</h2>
-        <p><strong>婚宴時間：</strong> 2024 年 11 月 2 日 下午 2:00</p>
-    </div>
-
-    <!-- 婚宴菜單 -->
-    <div class="section" id="wedding-menu">
-        <h2>婚宴菜單</h2>
-        <ul class="menu-item">
-            <li>前菜：龍蝦沙拉</li>
-            <li>湯品：松露蘑菇濃湯</li>
-            <li>主菜：法式烤鴨</li>
-            <li>甜點：提拉米蘇</li>
-            <li>飲品：紅酒、香檳</li>
-        </ul>
-    </div>
-
-    <!-- 新人故事 -->
-    <div class="section" id="couple-story">
-        <h2>新人故事</h2>
-        <p>俊霖愛姝妃，姝妃愛俊霖，尚未填內容</p>
-    </div>
-
-    <script src="js/scripts.js"></script> <!-- 引入外部 JavaScript -->
+    <script src="js/scripts.js"></script>
 </body>
 </html>
