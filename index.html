@@ -3,123 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我們的婚禮邀請函</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        h1 {
-            color: #d9534f;
-            margin-top: 20px;
-        }
-        .section {
-            margin: 20px 0;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .section h2 {
-            color: #5a5a5a;
-        }
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .gallery img {
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        .menu-item {
-            list-style-type: none;
-            padding: 0;
-        }
-        .menu-item li {
-            padding: 5px 0;
-        }
-        /* Lightbox CSS */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-        }
-        .lightbox:target {
-            display: flex;
-        }
-    </style>
+    <title>婚宴電子喜帖</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 引用外部CSS -->
 </head>
 <body>
 
-    <h1>歡迎來到我們的婚禮！</h1>
+    <h1>婚宴電子喜帖</h1>
+    <h2>我們的婚禮</h2>
+    <p>親愛的家人和朋友們，誠摯邀請您參加我們的婚禮！</p>
 
-        <!-- 婚紗照片區塊 -->
-    <div class="section" id="wedding-photos">
-        <h2>婚紗照片</h2>
-        <div class="gallery">
-            <a href="#photo1"><img src="https://drive.google.com/uc?export=view&id=1sjRkhm0o9PBK4yF_vwAbh756XXV2cX2J" alt="婚紗照片1"></a>
-            <a href="#photo2"><img src="https://drive.google.com/uc?export=view&id=1h6qCyRBXFI0sdBRdLYs3BBf8Idwjc_jQ" alt="婚紗照片2"></a>
+    <h3>婚禮地點</h3>
+    <p>XYZ飯店，婚宴大廳</p>
+
+    <h3>婚禮時間</h3>
+    <p>2024年12月12日 下午3點</p>
+
+    <h3>婚宴菜單</h3>
+    <p>敬請期待精緻的美食！</p>
+
+    <h3>我們的故事</h3>
+    <p>我們相遇、相知、相愛，期待與您分享這幸福的時刻！</p>
+
+    <!-- 照片展示 -->
+    <h3>照片集</h3>
+    <div class="row">
+      <div class="column">
+        <img src="images/free-demo01.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+      </div>
+      <div class="column">
+        <img src="images/free-demo02.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+      </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+
+        <div class="mySlides">
+          <div class="numbertext">1 / 2</div>
+          <img src="images/free-demo01.jpg" style="width:100%">
         </div>
+
+        <div class="mySlides">
+          <div class="numbertext">2 / 2</div>
+          <img src="images/free-demo02.jpg" style="width:100%">
+        </div>
+
+        <!-- Next/previous controls -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <!-- Caption text -->
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+
+        <!-- Thumbnail image controls -->
+        <div class="column">
+          <img class="demo" src="images/free-demo01.jpg" onclick="currentSlide(1)" alt="Image 1">
+        </div>
+
+        <div class="column">
+          <img class="demo" src="images/free-demo02.jpg" onclick="currentSlide(2)" alt="Image 2">
+        </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Lightbox for photos -->
-    <div class="lightbox" id="photo1">
-        <a href="#wedding-photos"><img src="https://drive.google.com/uc?export=view&id=1sjRkhm0o9PBK4yF_vwAbh756XXV2cX2J" alt="婚紗照片1"></a>
-    </div>
-    <div class="lightbox" id="photo2">
-        <a href="#wedding-photos"><img src="https://drive.google.com/uc?export=view&id=1h6qCyRBXFI0sdBRdLYs3BBf8Idwjc_jQ" alt="婚紗照片2"></a>
-    </div>
-
-    <!-- 婚宴地點 -->
-    <div class="section" id="wedding-location">
-        <h2>婚宴地點</h2>
-        <p>婚宴將於 <strong>2024 年 11 月 2 日</strong> 在台中市大雅區的「幸福莊園House Wedding」舉行。</p>
-        <p>地址：台中市大雅區樹德街252號</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116419.84244437577!2d120.51501479726564!3d24.237578700000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917270c98aaa9%3A0x6cf66c904b8612d9!2z5bm456aP6I6K5ZySSG91c2UgV2VkZGluZw!5e0!3m2!1szh-TW!2stw!4v1727584513869!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <!-- 婚宴時間 -->
-    <div class="section" id="wedding-time">
-        <h2>婚宴時間</h2>
-        <p><strong>婚宴時間：</strong> 2024 年 11 月 2 日 下午 2:00</p>
-    </div>
-
-    <!-- 婚宴菜單 -->
-    <div class="section" id="wedding-menu">
-        <h2>婚宴菜單</h2>
-        <ul class="menu-item">
-            <li>前菜：龍蝦沙拉</li>
-            <li>湯品：松露蘑菇濃湯</li>
-            <li>主菜：法式烤鴨</li>
-            <li>甜點：提拉米蘇</li>
-            <li>飲品：紅酒、香檳</li>
-        </ul>
-    </div>
-
-    <!-- 新人故事 -->
-    <div class="section" id="couple-story">
-        <h2>新人故事</h2>
-        <p>我們的故事始於 2018 年的春天，在一次朋友聚會中相識。從那時起，我們經歷了無數的快樂時光，彼此扶持與成長。在 2022 年的冬天，他在雪中向我求婚，那一刻我們都知道，我們的未來會共同走過。這場婚禮是我們愛情旅程的延續，感謝所有親朋好友的陪伴。</p>
-    </div>
+    <script src="scripts.js"></script> <!-- 引用外部JS -->
 
 </body>
 </html>
