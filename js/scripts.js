@@ -1,87 +1,96 @@
 // 載入婚紗照片
 function loadPhotos() {
-	// 婚紗照片資料
-	const photos = [];
+    // 婚紗照片資料
+    const photos = [];
 
-	for (let i = 1; i <= 10; i++) {
-		// 使用 padStart 來確保數字格式是兩位數
-		const paddedIndex = String(i).padStart(2, '0'); 
-		photos.push({
-			src: `images/PGG_${paddedIndex}.jpg`,
-			alt: `婚紗照片${paddedIndex}`,
-			index: i
-		});
-	}
-	
-	const galleryElement = document.getElementById('gallery-container');
-	const photoSlide = document.getElementById('slides-container');
-	
+    // 生成 80 張照片，使用 padStart 確保索引是兩位數
+    for (let i = 1; i <= 10; i++) {
+        const paddedIndex = String(i).padStart(2, '0'); 
+        photos.push({
+            src: `images/PGG_${paddedIndex}.jpg`,   // 圖片路徑
+            alt: `婚紗照片${paddedIndex}`,          // 圖片描述
+            index: i                                // 照片索引
+        });
+    }
+    
+    // 找到圖片容器與幻燈片容器
+    const galleryElement = document.getElementById('gallery-container');
+    const photoSlide = document.getElementById('slides-container');
+    
+    // 將每張照片加入到畫廊與幻燈片中
     photos.forEach(photo => {
+        // 創建圖片元素
         const img = document.createElement("img");
         img.src = photo.src;
         img.alt = photo.alt;
-		img.loading = "lazy";
-        img.onclick = () => openLightbox(photo.index);
-        galleryElement.appendChild(img);
-		
-		const slideDiv = document.createElement("div");
-		slideDiv.className = "mySlides";
-		const slideImg = document.createElement("img");
+        img.loading = "lazy";  // 懶加載圖片
+        img.onclick = () => openLightbox(photo.index);  // 點擊圖片開啟 Lightbox
+        galleryElement.appendChild(img);  // 加入圖片到畫廊
+        
+        // 創建幻燈片元素
+        const slideDiv = document.createElement("div");
+        slideDiv.className = "mySlides";
+        const slideImg = document.createElement("img");
         slideImg.src = photo.src;
         slideImg.alt = photo.alt;
-		slideImg.loading = "lazy";
-        slideDiv.appendChild(slideImg);
-        photoSlide.appendChild(slideDiv);
-		
+        slideImg.loading = "lazy";  // 懶加載圖片
+        slideDiv.appendChild(slideImg);  // 加入圖片到幻燈片
+        photoSlide.appendChild(slideDiv);  // 加入幻燈片
     });
 }
 
+// 初始化幻燈片索引
 let slideIndex = 1;
 
 // 開啟 Lightbox
 function openLightbox(index) {
-	currentSlide(index);
-    document.getElementById("lightbox").style.display = "flex";
-    showSlides(slideIndex);
+    currentSlide(index);  // 顯示當前幻燈片
+    document.getElementById("lightbox").style.display = "flex";  // 顯示 Lightbox
+    showSlides(slideIndex);  // 顯示幻燈片
 }
 
 // 關閉 Lightbox
 function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
+    document.getElementById("lightbox").style.display = "none";  // 隱藏 Lightbox
 }
 
-// 切換幻燈片
+// 切換到下一張或上一張幻燈片
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    showSlides(slideIndex += n);  // 切換幻燈片
 }
 
 // 顯示當前幻燈片
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlides(slideIndex = n);  // 顯示指定的幻燈片
 }
 
 // 顯示指定的幻燈片
 function showSlides(n) {
-    let i;
     const slides = document.getElementsByClassName("mySlides");
+    
+    // 循環顯示幻燈片
     if (n > slides.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slides.length; }
-    for (i = 0; i < slides.length; i++) {
+    
+    // 隱藏所有幻燈片
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
+    
+    // 顯示當前幻燈片
     slides[slideIndex - 1].style.display = "block";  
 }
 
-// 鍵盤導航
+// 鍵盤導航事件處理
 document.addEventListener('keydown', function(event) {
     const lightbox = document.getElementById("lightbox");
     if (lightbox.style.display === "flex") {
         if (event.key === "Escape") {
-            closeLightbox();
+            closeLightbox();  // 按下 ESC 關閉 Lightbox
         } else if (event.key === "ArrowLeft") {
-            plusSlides(-1);
+            plusSlides(-1);  // 按下左箭頭切換到上一張
         } else if (event.key === "ArrowRight") {
-            plusSlides(1);
+            plusSlides(1);  // 按下右箭頭切換到下一張
         }
     }
 });
@@ -91,8 +100,8 @@ const weddingDate = new Date("2024-11-02T12:00:00").getTime();
 
 // 倒數計時函數
 const countdownFunction = () => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+    const now = new Date().getTime();  // 當前時間
+    const distance = weddingDate - now;  // 剩餘時間
 
     // 計算天、時、分、秒
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -100,17 +109,17 @@ const countdownFunction = () => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // 更新倒數顯示
+    // 更新倒數計時的顯示
     document.getElementById("countdown").innerHTML = `${days}天 ${hours}小時 ${minutes}分鐘 ${seconds}秒`;
 
     // 如果倒數結束
     if (distance < 0) {
-        clearInterval(x);
+        clearInterval(x);  // 停止計時
         document.getElementById("countdown").innerHTML = "婚宴開始！";
     }
 };
 
-// 每秒更新倒數
+// 每秒更新倒數計時
 const x = setInterval(countdownFunction, 1000);
 
 // 加入 Google 行事曆的函數
@@ -129,62 +138,112 @@ const addToGoogleCalendar = () => {
         },
     };
 
+    // 生成 Google 行事曆 URL
     const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.summary)}&dates=${event.start.dateTime.replace(/-|:|\.\d{3}/g, '')}/${event.end.dateTime.replace(/-|:|\.\d{3}/g, '')}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
 
-    window.open(calendarUrl, '_blank');
+    window.open(calendarUrl, '_blank');  // 在新窗口中打開行事曆連結
 };
 
-// 綁定按鈕事件
+// 綁定加入 Google 行事曆按鈕的點擊事件
 document.getElementById("add-to-calendar").onclick = addToGoogleCalendar;
 
 // 切換各個 section 的顯示狀態
 function toggleSection(sectionId) {
     const sections = document.querySelectorAll('.panel');
-    
-    // 關閉所有其他sections
+
+    // 關閉其他 sections
     sections.forEach(section => {
         if (section.id !== sectionId) {
             section.style.display = "none";
         }
     });
 
-    // 切換當前section的顯示狀態
+    // 切換當前 section 顯示狀態
     const panel = document.getElementById(sectionId);
-    if (panel.style.display === "none" || panel.style.display === "") {
-        panel.style.display = "block";
-    } else {
-        panel.style.display = "none";
-    }
+    panel.style.display = (panel.style.display === "none" || panel.style.display === "") ? "block" : "none";
 }
 
+// 隱藏主內容區
 document.getElementById("main-content").classList.add("hidden");
 
-let welcomeTimeout;
+let welcomeTimeout;  // 計時器
 
 // 在 DOM 加載完成後執行
 document.addEventListener("DOMContentLoaded", function() {
-	// 初始化圖片
-	loadPhotos();
-	
-    // 初始化計時器
-    startWelcomeTimer();	
+    // 初始化圖片
+    loadPhotos();
 
-    // 歡迎畫面在頁面加載後立即顯示
+    // 初始化歡迎畫面計時器
+    startWelcomeTimer();  
+
+    // 顯示歡迎畫面
     document.getElementById("welcome-screen").style.display = "flex";
 });
 
-// 計時器函數
+// 歡迎畫面計時器函數
 function startWelcomeTimer() {
-    welcomeTimeout = setTimeout(closeWelcome, 10000); // 10秒後自動關閉
+    welcomeTimeout = setTimeout(closeWelcome, 10000);  // 10 秒後關閉歡迎畫面
 }
 
 // 關閉歡迎畫面
 function closeWelcome() {
-    clearTimeout(welcomeTimeout); // 清除計時器
-    document.getElementById("welcome-screen").style.display = "none";
-    document.getElementById("main-content").classList.remove("hidden"); // 顯示主內容
+	// 瀏覽器規則，用戶交互後才能播放音樂
+    audio.play();
+	
+    clearTimeout(welcomeTimeout);  // 清除計時器
+	const welcomeScreen = document.getElementById('welcome-screen');
+	// 加入淡出效果
+	welcomeScreen.classList.add('fade-out');
+	// 等待1秒淡出完成後隱藏元素
+	setTimeout(() => {
+		welcomeScreen.classList.add('hidden');
+	}, 2000); // 2秒後隱藏
+	//document.getElementById("welcome-screen").style.display = "none";  // 隱藏歡迎畫面
+    document.getElementById("main-content").classList.remove("hidden");  // 顯示主內容
 }
 
+// 顯示警告訊息
 function showAlert() {
     alert("不只錢到！人也要到！請帶著紅包到現場！");
+}
+
+let imageIndex = 1;
+const totalImages = 5;
+
+function rotateImages() {
+    const img = document.getElementById('title-carousel');
+    img.src = `images/title_0${imageIndex}.png`;
+
+    imageIndex++;
+    if (imageIndex > totalImages) {
+        imageIndex = 1;
+    }
+}
+
+setInterval(rotateImages, 5000); // 每 5 秒切換一次圖片
+
+// 控制背景播放音樂與YouTube播放時會被暫停情況
+var player;
+var audio = document.getElementById("background-music");
+
+// This function gets called automatically when the YouTube API is ready
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtube-player', {
+	events: {
+	  'onStateChange': onPlayerStateChange
+	}
+  });
+}
+
+// This function handles the YouTube player state changes
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING) {
+	// When YouTube video starts playing, pause the audio
+	audio.pause();
+  } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+	// When video is paused or ends, wait 3 seconds and resume audio
+	setTimeout(function() {
+	  audio.play();
+	}, 3000); // 3000 milliseconds = 3 seconds
+  }
 }

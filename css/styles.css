@@ -188,6 +188,26 @@ h1 {
     background-color: #f7f2eb; /* 背景顏色 */
     margin-bottom: 5px; /* 下邊距 */
 	border-radius: 15px; /* 圓角 */
+	line-height: 1.6;
+}
+
+.panel img {
+	padding-top: 20px;
+	max-width: 100%; /* 圖片最大寬度為容器的100% */
+	height: auto;    /* 保持圖片比例 */
+	display: block;  /* 避免圖片下方留有空隙 */
+	margin: 0 auto;  /* 圖片置中 */
+}
+
+.panel h3 {
+	margin-bottom: 0;
+	border-bottom: 1px solid #dcdcdc; /* 添加一條灰色的直線 */
+	padding-bottom: 0; /* 給標題下方留些空間 */
+}
+
+.panel ul {
+	padding-left: 5px;
+	text-align: left
 }
 
 /* Welcome Screen Styles */
@@ -202,6 +222,7 @@ h1 {
     z-index: 1000; /* 在其他內容上面 */
     justify-content: center; /* 置中 */
     align-items: center; /* 置中 */
+	transition: opacity 2s ease; /* 添加淡出過渡效果 */
 }
 
 #welcome-screen img {
@@ -209,6 +230,14 @@ h1 {
     max-height: 80%; /* 最大高度 */
     height: auto; /* 自動調整高度 */
     cursor: pointer; /* 鼠標樣式 */
+}
+
+#welcome-screen.fade-out {
+	opacity: 0;
+}
+
+#welcome-screen.hidden {
+	display: none;
 }
 
 /* Title Styles */
@@ -298,8 +327,8 @@ h1 {
 
 .default-padding {
 	width: 100%;
-	margin-top: 5%;
-	padding-bottom: 10%;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	overflow: hidden;
 	position: relative;
 	border-radius: 10px;
