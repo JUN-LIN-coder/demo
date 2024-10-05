@@ -232,7 +232,7 @@ setInterval(rotateImages, 5000); // 每 5 秒切換一次圖片
 // 控制背景播放音樂與YouTube播放時會被暫停情況
 var player;
 var audio = document.getElementById("background-music");
-let audioPlayTimer;
+var audioPlayTimer;
 
 // This function handles the YouTube player state changes
 function onPlayerStateChange(event) {
