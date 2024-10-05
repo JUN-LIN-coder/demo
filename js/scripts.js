@@ -233,21 +233,13 @@ setInterval(rotateImages, 5000); // 每 5 秒切換一次圖片
 var player;
 var audio = document.getElementById("background-music");
 
-// This function gets called automatically when the YouTube API is ready
-function onYouTubeIframeAPIReady() {
-	alert("onYouTubeIframeAPIReady");
-}
-
 // This function handles the YouTube player state changes
 function onPlayerStateChange(event) {
-	alert(event.data);
 	if (event.data == YT.PlayerState.PLAYING) {
 		// When YouTube video starts playing, pause the audio
-		alert("YT PLAYING");
 		audio.pause();
 		} else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
 			// When video is paused or ends, wait 3 seconds and resume audio
-			alert("YT PAUSED OR ENDED");
 			setTimeout(function() {
 				audio.play();
 			}, 3000); // 3000 milliseconds = 3 seconds
