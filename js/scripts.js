@@ -200,6 +200,13 @@ function closeWelcome() {
 	}, 2000); // 2秒後隱藏
 	//document.getElementById("welcome-screen").style.display = "none";  // 隱藏歡迎畫面
     document.getElementById("main-content").classList.remove("hidden");  // 顯示主內容
+	
+	// YouTube iframe父層預設display:none，故改在此加載
+	player = new YT.Player('youtube-player', {
+		events: {
+			'onStateChange': onPlayerStateChange
+		}
+	});
 }
 
 // 顯示警告訊息
@@ -229,11 +236,6 @@ var audio = document.getElementById("background-music");
 // This function gets called automatically when the YouTube API is ready
 function onYouTubeIframeAPIReady() {
 	alert("onYouTubeIframeAPIReady");
-	player = new YT.Player('youtube-player', {
-		events: {
-			'onStateChange': onPlayerStateChange
-		}
-	});
 }
 
 // This function handles the YouTube player state changes
