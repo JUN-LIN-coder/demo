@@ -232,16 +232,25 @@ setInterval(rotateImages, 5000); // 每 5 秒切換一次圖片
 // 控制背景播放音樂與YouTube播放時會被暫停情況
 var player;
 var audio = document.getElementById("background-music");
+let audioPlayTimer;
 
 // This function handles the YouTube player state changes
 function onPlayerStateChange(event) {
 	if (event.data == YT.PlayerState.PLAYING) {
-		// When YouTube video starts playing, pause the audio
+		// YouTube影片播放中，關閉背景音樂
 		audio.pause();
-		} else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-			// When video is paused or ends, wait 3 seconds and resume audio
-			setTimeout(function() {
-				audio.play();
-			}, 3000); // 3000 milliseconds = 3 seconds
+		// YouTube影片播放中，檢查是否有正要啟動播放背景音樂的動作，將其取消
+		if (audioTimer != null) {
+			clearTimeout(audioTimer)
+		}
+	} else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+		// YouTube影片暫停或結束，檢查是否有正要執行啟動播放背景音樂的動作，將其取消
+		if (audioTimer != null) {
+			clearTimeout(audioTimer)
+		}
+		// YouTube影片暫停或結束，等待3秒後啟動播放背景音樂
+		audioPlayTimer = setTimeout(function() {
+			audio.play();
+		}, 3000); // 3000 milliseconds = 3 seconds
 	}
 }
