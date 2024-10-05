@@ -239,9 +239,11 @@ function onYouTubeIframeAPIReady() {
 function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.PLAYING) {
 	// When YouTube video starts playing, pause the audio
+	console.log("YT PLAYING");
 	audio.pause();
   } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
 	// When video is paused or ends, wait 3 seconds and resume audio
+	console.log("YT PAUSED OR ENDED");
 	setTimeout(function() {
 	  audio.play();
 	}, 3000); // 3000 milliseconds = 3 seconds
