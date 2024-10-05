@@ -240,14 +240,14 @@ function onPlayerStateChange(event) {
 		// YouTube影片播放中，關閉背景音樂
 		audio.pause();
 		// YouTube影片播放中，檢查是否有正要啟動播放背景音樂的動作，將其取消
-		if (audioTimer != null) {
-			clearTimeout(audioTimer);
-			autoTimer = null;
+		if (audioPlayTimer != null) {
+			clearTimeout(audioPlayTimer);
+			audioPlayTimer = null;
 		}
 	} else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
 		// YouTube影片暫停或結束，檢查是否有正要執行啟動播放背景音樂的動作，將其取消
-		if (audioTimer != null) {
-			clearTimeout(audioTimer);
+		if (audioPlayTimer != null) {
+			clearTimeout(audioPlayTimer);
 			audioPlayTimer = null;
 		}
 		// YouTube影片暫停或結束，等待3秒後啟動播放背景音樂
